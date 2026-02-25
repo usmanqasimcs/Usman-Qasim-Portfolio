@@ -1,20 +1,39 @@
 ---
 const technologies = [
-  "astro",
-  "vue",
   "react",
-  "typeScript",
-  "tailwindcss",
-  "next",
+  "expo",
   "nodejs",
-  "HTML5",
-  "CSS3",
   "javaScript",
-  "git",
-  "supabase",
+  "typeScript",
+  "firebase",
+  "mongo",
   "mysql",
+  "supabase",
+  "aws",
+  "docker",
+  "git",
+  "vscode",
+  "tailwindcss",
   "bash",
 ];
+
+const techDisplayNames: Record<string, string> = {
+  react: "React",
+  expo: "Expo",
+  nodejs: "Node.js",
+  javaScript: "JavaScript",
+  typeScript: "TypeScript",
+  firebase: "Firebase",
+  mongo: "MongoDB",
+  mysql: "MySQL",
+  supabase: "Supabase",
+  aws: "AWS",
+  docker: "Docker",
+  git: "Git",
+  vscode: "VS Code",
+  tailwindcss: "Tailwind CSS",
+  bash: "Bash",
+};
 ---
 
 <div class="relative overflow-x-hidden py-8">
@@ -34,13 +53,13 @@ const technologies = [
           <img
             src={`/svg/${tech}.svg`}
             alt={tech}
-            class="h-7 w-auto object-contain transition-transform group-hover:scale-110 opacity-60"
+            class={`h-7 w-auto object-contain transition-transform group-hover:scale-110 opacity-60 ${tech === 'expo' ? 'invert' : ''}`}
             width="30"
             height="30"
             loading="lazy"
           />
           <span class="text-lg font-medium text-[var(--white-icon)]">
-            {tech.charAt(0).toUpperCase() + tech.slice(1)}
+            {techDisplayNames[tech] || tech.charAt(0).toUpperCase() + tech.slice(1)}
           </span>
         </div>
       ))
